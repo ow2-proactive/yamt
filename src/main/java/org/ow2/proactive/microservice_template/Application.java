@@ -31,6 +31,7 @@
 
 package org.ow2.proactive.microservice_template;
 
+import com.google.common.base.Predicate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -51,6 +52,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
@@ -156,24 +158,27 @@ public class Application extends WebMvcConfigurerAdapter {
     /*
     The following code is for Swagger documentation
      */
-//    @Bean
-//    public Docket workflowCatalogApi() {
-//        return new Docket(DocumentationType.SWAGGER_2)
-//                .apiInfo(apiInfo())
-//                .groupName("microservice-template")
-//                .ignoredParameterTypes(Pageable.class, PagedResourcesAssembler.class)
-//                .select()
-//                .paths(allowedPaths())
-//                .build();
-//    }
+    @Bean
+    public Docket microserviceApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .groupName("microservice-template")
+                .ignoredParameterTypes(Pageable.class, PagedResourcesAssembler.class)
+                .select()
+                .paths(allowedPaths())
+                .build();
+    }
 
-//    private ApiInfo apiInfo() {
-//        return new ApiInfoBuilder()
-//                .title("microservice-template API")
-//                .description("The purpose of the microservice-template is ...\n")
-//                .licenseUrl("https://github.com/ow2-proactive/microservice-template/blob/master/LICENSE")
-//                .version("1.0")
-//                .build();
-//    }
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("microservice-template API")
+                .description("The purpose of the microservice-template is ...\n")
+                .licenseUrl("https://github.com/ow2-proactive/microservice-template/blob/master/LICENSE")
+                .version("1.0")
+                .build();
+    }
 
+    private Predicate<String> allowedPaths() {
+        return PathSelectors.regex("/hello.*");
+    }
 }
