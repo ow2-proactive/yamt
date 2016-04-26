@@ -20,12 +20,20 @@ Same goes for the coveralls-badge:
 ```
 
 ## Specific modifications
-The following modifications to the **build.gradle** are needed before starting to work on the micro-service:
-* Update the dependencies versions
-* Modify the projectName
-* Modify the package name to your need and impact these changes at the springBoot part and specify in 'packageName' variable
+The following modifications are needed before starting to work on the micro-service:
+* In the **build.gradle** file update the dependencies versions
+* In the **log4j2.xml** change the log file name from 'micro-service.log'
+* In the **gradle.properties** modify the version, projectName, packageLastPartName (the last part in package name)
+* In the **applicationContext.xml** specify the correct package name in base-package (change the microservice_template name to the packageLastPartName already specified in properties)
+* In the main/java modify the **package name** to your need.
+These changes will impact at the springBoot section in build.gradle file. By default the Application.java from this package will start on bootRun.
 
 ## Building and running the micro-service
+
+You can start a microservice as a standalone application:
+```
+$ gradlew clean build bootRun
+```
 
 You can build a WAR file as follows:
 
@@ -43,8 +51,8 @@ The WAR file produced by Gradle can also be deployed in the embedded Jetty conta
 
 ## Swagger
 
-Available resources can be listed and tested with Swagger once the associated code is uncommented from the **Application.java** file:
+Available resources can be listed and tested with Swagger. The associated code is in the **Application.java** file:
 
-[http://localhost:8080/swagger](http://localhost:8080/swagger)
+[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 
