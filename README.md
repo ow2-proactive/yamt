@@ -1,6 +1,12 @@
 # ProActive Microservice template
 
-[![Build Status](http://jenkins.activeeon.com/job/microservice-template/badge/icon)](http://jenkins.activeeon.com/job/microservice-template/)
+
+
+```
+[![Build Status](http://jenkins.activeeon.com/job/<insert microservice job name>/badge/icon)](http://jenkins.activeeon.com/job/<insert microservice job name>/)
+```
+
+
 [![Coverage Status](https://coveralls.io/repos/github/ow2-proactive/microservice-template/badge.svg?branch=origin%2Fmaster)](https://coveralls.io/github/ow2-proactive/microservice-template?branch=origin%2Fmaster)
 
 The purpose of the microservice template is to have common template for new microservice's implementation.
@@ -24,3 +30,5 @@ The WAR file produced by Gradle can also be deployed in the embedded Jetty conta
 Available resources can be listed and tested with Swagger:
 
 [http://localhost:8080/swagger](http://localhost:8080/swagger)
+
+
