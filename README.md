@@ -49,10 +49,98 @@ $ java -jar build/libs/microservice-template-X.Y.Z-SNAPSHOT.war
 
 The WAR file produced by Gradle can also be deployed in the embedded Jetty container started by an instance of [ProActive Server](https://github.com/ow2-proactive/scheduling).
 
+### Example
+For testing purpose the simple HelloWorld example is included. To test it use Swagger or (http://localhost:8080/hello?name=yourName).<br>
+The response should be {"name": "yourName"}
+
 ## Swagger
 
 Available resources can be listed and tested with Swagger. The associated code is in the **Application.java** file:
+Modify the name of microservice-template in title, description, licenseUrl, groupName sections. Put right allowedPaths.<br>
+To access Swagger API:
 
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
+## DB configuration
 
+For using DB configuration include next class to your project.
+Of course change 'microservice-template' name to proper one.
+
+```
+@Configuration
+public class DBConfiguration {
+
+    @Value("${spring.datasource.driverClassName:org.hsqldb.jdbc.JDBCDriver}")
+    private String dataSourceDriverClassName;
+
+    @Value("${spring.datasource.url:}")
+    private String dataSourceUrl;
+
+    @Value("${spring.datasource.username:root}")
+    private String dataSourceUsername;
+
+    @Value("${spring.datasource.password:}")
+    private String dataSourcePassword;
+
+    @Bean
+    @Profile("default")
+    public DataSource defaultDataSource() {
+        String jdbcUrl = dataSourceUrl;
+
+        if (jdbcUrl.isEmpty()) {
+            jdbcUrl = "jdbc:hsqldb:file:" + getDatabaseDirectory()
+                    + ";create=true;hsqldb.tx=mvcc;hsqldb.applog=1;hsqldb.sqllog=0;hsqldb.write_delay=false";
+        }
+
+        return DataSourceBuilder
+                .create()
+                .username(dataSourceUsername)
+                .password(dataSourcePassword)
+                .url(jdbcUrl)
+                .driverClassName(dataSourceDriverClassName)
+                .build();
+    }
+
+    @Bean
+    @Profile("mem")
+    public DataSource memDataSource() {
+        return createMemDataSource();
+    }
+
+    @Bean
+    @Profile("test")
+    public DataSource testDataSource() {
+        return createMemDataSource();
+    }
+
+    private DataSource createMemDataSource() {
+        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+        EmbeddedDatabase db = builder
+                .setType(EmbeddedDatabaseType.HSQL)
+                .build();
+        return db;
+    }
+
+    private String getDatabaseDirectory() {
+        String proactiveHome = System.getProperty("proactive.home");
+
+        if (proactiveHome == null) {
+            return System.getProperty("java.io.tmpdir") + File.separator
+                    + "proactive" + File.separator + "microservice-template";
+        }
+
+        return proactiveHome + File.separator + "data"
+                + File.separator + "db" + File.separator + "microservice-template";
+    }
+}
+```
+
+In application.properties add next information with correct values for your project
+
+```
+# DataSource settings: set here your own configurations for the database connection.
+spring.datasource.driverClassName=org.hsqldb.jdbc.JDBCDriver
+spring.datasource.url=jdbc:hsqldb:file:/tmp/proactive/microservice-template;create=true;hsqldb.tx=mvcc;hsqldb.applog=1;hsqldb.sqllog=0;hsqldb.write_delay=false
+spring.datasource.username=root
+spring.datasource.password=
+```
