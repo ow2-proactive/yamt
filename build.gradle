@@ -78,7 +78,7 @@ sourceSets {
 }
 
 springBoot {
-    mainClass = 'org.ow2.proactive.microservice_template.Application'
+    mainClass = 'org.ow2.proactive.' + packageName + '.Application'
 }
 
 war {
