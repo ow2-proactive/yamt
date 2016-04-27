@@ -50,8 +50,8 @@ $ java -jar build/libs/microservice-template-X.Y.Z-SNAPSHOT.war
 The WAR file produced by Gradle can also be deployed in the embedded Jetty container started by an instance of [ProActive Server](https://github.com/ow2-proactive/scheduling).
 
 ### Example
-For testing purpose the simple HelloWorld example is included. To test it use Swagger or (http://localhost:8080/hello?name=yourName).<br>
-The response should be {"name": "yourName"}
+The template is organized with a simple RESTful example. To test it use Swagger or (http://localhost:8080/user).<br>
+Also in order to test HTTP Methods it is included SpringRestTestClient class. This class is using corresponding Spring’s RestTemplate methods.
 
 ## Swagger
 
