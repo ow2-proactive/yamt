@@ -106,6 +106,6 @@ public class Application extends WebMvcConfigurerAdapter {
     }
 
     private Predicate<String> allowedPaths() {
-        return PathSelectors.regex("/user.*");
+        return PathSelectors.regex("/users.*");
     }
 }
