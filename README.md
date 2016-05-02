@@ -49,11 +49,10 @@ $ java -jar build/libs/microservice-template-X.Y.Z-SNAPSHOT.war
 
 The WAR file produced by Gradle can also be deployed in the embedded Jetty container started by an instance of [ProActive Server](https://github.com/ow2-proactive/scheduling).
 
-### Example
+## Example
 The template is organized with a complete RESTful example. The example follows MVC packaging structure and covered by tests.
 The purpose of example to make more easy developing of new service.
 To try it out use Swagger or (http://localhost:8080/users).<br>
-Also in order to test HTTP Methods it is included SpringUserRestTest class. This class is using corresponding Spring’s RestTemplate methods.
 
 ## Swagger
 
@@ -146,3 +145,9 @@ spring.datasource.url=jdbc:hsqldb:file:/tmp/proactive/microservice-template;crea
 spring.datasource.username=root
 spring.datasource.password=
 ```
+
+## Testing
+
+In order to follow the best testing practises it is included testing part of Spring components with Mockito.<br>
+For integration test it is provided code in SpringUserRestTest class. For testing REST methods is used RestTemplate from spring framework.<br>
+You can also use Rest Assured library, that is already included in list of imported libraries in the gradle file.
