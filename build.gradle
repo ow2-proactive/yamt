@@ -113,9 +113,9 @@ dependencies {
     testCompile 'nl.jqno.equalsverifier:equalsverifier:2.0.2'
     testCompile 'org.mockito:mockito-core:1.10.19'
 
-    integrationTestCompile 'com.google.code.gson:gson:2.6.2'
-    integrationTestCompile 'com.jayway.restassured:rest-assured:2.9.0'
-    integrationTestCompile 'org.springframework.boot:spring-boot-starter-test:1.3.3.RELEASE'
+    testCompile 'com.google.code.gson:gson:2.6.2'
+    testCompile 'com.jayway.restassured:rest-assured:2.9.0'
+    testCompile 'org.springframework.boot:spring-boot-starter-test:1.3.3.RELEASE'
 }
 
 test {
