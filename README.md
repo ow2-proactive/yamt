@@ -1,4 +1,5 @@
-# ProActive Microservice template
+# **yamt** (yet another microservice template)
+Restful microservice template from ProActive
 
 ## Purpose
 
