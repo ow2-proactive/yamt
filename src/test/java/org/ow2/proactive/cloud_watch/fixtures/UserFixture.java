@@ -1,6 +1,6 @@
-package org.ow2.proactive.microservice_template.fixtures;
+package org.ow2.proactive.cloud_watch.fixtures;
 
-import org.ow2.proactive.microservice_template.model.User;
+import org.ow2.proactive.cloud_watch.model.User;
 
 /**
  * Created by Iaroslav on 4/29/2016.

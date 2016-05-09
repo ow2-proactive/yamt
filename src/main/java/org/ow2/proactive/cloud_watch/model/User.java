@@ -1,4 +1,4 @@
-package org.ow2.proactive.microservice_template.model;
+package org.ow2.proactive.cloud_watch.model;
 
 import lombok.*;
 

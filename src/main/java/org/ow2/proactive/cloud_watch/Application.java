@@ -29,7 +29,7 @@
  *                         http://proactive.inria.fr/team_members.htm
  */
 
-package org.ow2.proactive.microservice_template;
+package org.ow2.proactive.cloud_watch;
 
 import com.google.common.base.Predicate;
 import org.springframework.boot.SpringApplication;

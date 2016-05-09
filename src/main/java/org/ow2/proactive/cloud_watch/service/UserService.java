@@ -1,7 +1,7 @@
-package org.ow2.proactive.microservice_template.service;
+package org.ow2.proactive.cloud_watch.service;
 
 
-import org.ow2.proactive.microservice_template.model.User;
+import org.ow2.proactive.cloud_watch.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

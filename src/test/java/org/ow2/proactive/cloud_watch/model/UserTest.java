@@ -1,7 +1,7 @@
-package org.ow2.proactive.microservice_template.model;
+package org.ow2.proactive.cloud_watch.model;
 
 import org.junit.Test;
-import org.ow2.proactive.microservice_template.fixtures.UserFixture;
+import org.ow2.proactive.cloud_watch.fixtures.UserFixture;
 
 import java.util.HashSet;
 import java.util.Set;
