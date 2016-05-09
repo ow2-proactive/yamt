@@ -1,5 +1,5 @@
-# **yamt** (yet another microservice template)
-Restful microservice template from ProActive
+# **proactive-cloud-watch**
+Smart monitoring of resources in clouds
 
 ## Purpose
 
