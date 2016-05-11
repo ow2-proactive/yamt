@@ -10,6 +10,7 @@ import org.ow2.proactive.smart.watch.service.RuleService;
 
 import javax.ws.rs.core.Response;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.*;
 

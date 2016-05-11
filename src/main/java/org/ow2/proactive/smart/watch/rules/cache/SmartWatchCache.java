@@ -5,7 +5,6 @@ import jersey.repackaged.com.google.common.collect.Maps;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j;
 import org.ow2.proactive.smart.watch.event.processing.MetricProcessingConfigProvider;
-import org.ow2.proactive.smart.watch.external.rest.SiroccoRestClient;
 import org.ow2.proactive.smart.watch.model.NodeInformation;
 import org.ow2.proactive.smart.watch.model.Rule;
 import org.ow2.proactive.smart.watch.model.RuleEPRuntimeTuple;
@@ -35,13 +34,19 @@ public class SmartWatchCache {
 	private static final Map<String, NodeInformation> memoiseProactiveNodeIdsFunction = new ConcurrentHashMap<String, NodeInformation>();
 
 	@Autowired
-	public SmartWatchCache(RulesLoader rulesLoader, MetricProcessingConfigProvider metricProcessingConfigProvider,
-						   SiroccoRestClient siroccoRestClient) {
+	public SmartWatchCache(RulesLoader rulesLoader, MetricProcessingConfigProvider metricProcessingConfigProvider) {
 		this.rules = ImmutableMap.of();
 		this.rulesLoader = rulesLoader;
 		this.metricProcessingConfigProvider = metricProcessingConfigProvider;
 		this.nodesId = ImmutableMap.of();
-		this.populateNodeIdsFunction = memoise(alienId -> siroccoRestClient.getProactiveId(alienId));
+		this.populateNodeIdsFunction = new Function<String, NodeInformation>() {
+			@Override
+			public NodeInformation apply(String s) {
+				return null;
+			}
+		};
+
+//		this.populateNodeIdsFunction = memoise(alienId -> siroccoRestClient.getProactiveId(alienId));
 		init();
 	}
 
