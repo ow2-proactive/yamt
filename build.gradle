@@ -85,10 +85,23 @@ war {
     version = version
 }
 
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if (details.requested.name == 'log4j') {
+            details.useTarget "org.slf4j:log4j-over-slf4j:1.7.5"
+        }
+    }
+}
+
 dependencies {
     compile 'com.espertech:esper:5.2.0'  // before using Drools
-    compile group: 'com.aol.microservices', name:'micro-grizzly-with-jersey', version:'0.62'
+    compile (group: 'com.aol.microservices', name:'micro-grizzly-with-jersey', version:'0.62')
+    {
+        exclude module: 'log4j'
+    }
     compile 'com.googlecode.json-simple:json-simple:1.1.1'
+    compile 'com.sun.jersey:jersey-server:1.19.1'
+    compile 'com.sun.jersey:jersey-client:1.19.1'
 
     compile 'org.projectlombok:lombok:1.16.6'
 
