@@ -1,18 +1,15 @@
-# **proactive-cloud-watch**
+# **Proactive cloud watch**
 Smart monitoring of resources in clouds
 
 ## Purpose
 
-The purpose of the microservice template is to have common template for new microservice's implementation.
+The purpose of the cloud watch is to be able to monitor the resources in clouds and trigger actions correspond to specific rules.
 
 ## Build Badges
 
-To insert a build-badge like this one:
-[![Build Status](http://jenkins.activeeon.com/job/scheduling/badge/icon)](http://jenkins.activeeon.com/job/scheduling/)
-
 We need to use the following code after creating the associated job on Jenkins:
 ```
-[![Build Status](http://jenkins.activeeon.com/job/<insert microservice job name>/badge/icon)](http://jenkins.activeeon.com/job/<insert microservice job name>/)
+[![Build Status](http://jenkins.activeeon.com/job/proactive-cloud-watch/badge/icon)](http://jenkins.activeeon.com/job/proactive-cloud-watch/)
 ```
 
 Same goes for the coveralls-badge:
@@ -20,18 +17,9 @@ Same goes for the coveralls-badge:
 [![Coverage Status](https://coveralls.io/repos/github/ow2-proactive/microservice-template/badge.svg?branch=origin%2Fmaster)](https://coveralls.io/github/ow2-proactive/microservice-template?branch=origin%2Fmaster)
 ```
 
-## Specific modifications
-The following modifications are needed before starting to work on the micro-service:
-* In the **build.gradle** file update the dependencies versions
-* In the **log4j2.xml** change the log file name from 'micro-service.log'
-* In the **gradle.properties** modify the version, projectName, packageLastPartName (the last part in package name)
-* In the **applicationContext.xml** specify the correct package name in base-package (change the microservice_template name to the packageLastPartName already specified in properties)
-* In the main/java modify the **package name** to your need.
-These changes will impact at the springBoot section in build.gradle file. By default the Application.java from this package will start on bootRun.
+## Building and running the proactive-cloud-watch
 
-## Building and running the micro-service
-
-You can start a microservice as a standalone application:
+You can start a proactive-cloud-watch as a standalone application:
 ```
 $ gradlew clean build bootRun
 ```

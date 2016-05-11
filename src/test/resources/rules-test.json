@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Rule one",
+    "nodes": [
+      {
+        "alienId": "cde76187-b041-4083-8c83-0e1fb3114603"
+      }
+    ],
+    "selectList": "select avg(cpu), avg(memory)",
+    "searchCondition": "having avg(cpu) > 80 and avg(memory) > 80",
+    "period": 1,
+    "windowTimeMin": 5,
+    "notifications": [
+      "LOG"
+    ]
+    
+  },
+  {
+    "name": "Rule two",
+    "nodes": [
+      {
+        "alienId": "cde76187-b041-4083-8c83-0e1fb3114603"
+      }
+    ],
+    "selectList": "select avg(cpu), avg(memory)",
+    "searchCondition": "having avg(cpu) > 70 and avg(memory) > 70",
+    "period": 1,
+    "windowTimeMin": 5,
+    "notifications": [
+      "REST"
+    ]
+  }
+]
