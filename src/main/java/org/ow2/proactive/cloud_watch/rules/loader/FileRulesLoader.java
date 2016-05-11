@@ -1,6 +1,8 @@
 package org.ow2.proactive.cloud_watch.rules.loader;
 
-import com.aol.micro.server.rest.jackson.JacksonUtil;
+
+//import com.aol.micro.server.rest.jackson.JacksonUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jersey.repackaged.com.google.common.collect.Sets;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -31,6 +33,7 @@ public class FileRulesLoader implements RulesLoader {
 
 	@Override
 	public Set<Rule> load() {
+		ObjectMapper mapper = new ObjectMapper();
 
 		Set<Rule> rules = Sets.newHashSet();
 
@@ -38,7 +41,13 @@ public class FileRulesLoader implements RulesLoader {
 		try {
 			allRules = (JSONArray) parser.parse(new FileReader(loadFile()));
 			Iterator<JSONObject> loadedRules = allRules.iterator();
-			loadedRules.forEachRemaining(rule -> rules.add(JacksonUtil.convertFromJson(rule.toString(), Rule.class)));
+			loadedRules.forEachRemaining(rule -> {
+				try {
+					rules.add(mapper.readValue(rule.toString(), Rule.class));
+				} catch (IOException e) {
+					throw new RuntimeException("Error while loading the rules", e);
+				}
+			});
 
 		} catch (IOException | ParseException e) {
 			throw new RuntimeException("Error while loading the rules", e);

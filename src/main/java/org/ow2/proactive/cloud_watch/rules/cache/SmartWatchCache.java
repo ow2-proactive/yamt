@@ -51,7 +51,7 @@ public class SmartWatchCache {
 	}
 
 	public void init() {
-		refreshRules();
+//		refreshRules();
 	}
 
 	public synchronized void refreshRules() {

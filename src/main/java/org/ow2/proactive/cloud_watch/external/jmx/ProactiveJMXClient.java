@@ -1,6 +1,6 @@
 package org.ow2.proactive.cloud_watch.external.jmx;
 
-import jersey.repackaged.com.google.common.collect.Maps;
+//import jersey.repackaged.com.google.common.collect.Maps;
 import lombok.extern.log4j.Log4j;
 import org.ow2.proactive.cloud_watch.external.ProactiveClient;
 import org.ow2.proactive.cloud_watch.model.NodeInformation;
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import javax.management.*;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -28,7 +29,7 @@ public class ProactiveJMXClient implements ProactiveClient {
 	public Map<String, Object> getProperties(NodeInformation nodeInformation, Set<String> kpis) {
 
 		MBeanServerConnection connection;
-		Map<String, Object> metrics = Maps.newHashMap();
+		Map<String, Object> metrics = new HashMap<>();
 
 		try {
 
@@ -53,7 +54,7 @@ public class ProactiveJMXClient implements ProactiveClient {
 	private Map<String, String> invokeMBean(MBeanServerConnection connection, ObjectName obj, Object[] params,
 			String[] signature, String method)
 					throws InstanceNotFoundException, MBeanException, ReflectionException, IOException {
-		Map<String, String> properties = Maps.newHashMap();
+		Map<String, String> properties = new HashMap<>();
 
 		properties = (Map<String, String>) connection.invoke(obj, method, params, signature);
 		printProperties(method, properties);
