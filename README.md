@@ -29,6 +29,10 @@ The following modifications are needed before starting to work on the micro-serv
 * In the main/java modify the **package name** to your need.
 These changes will impact at the springBoot section in build.gradle file. By default the Application.java from this package will start on bootRun.
 
+## Prepare your IDE 
+In the project is used Lombok library. It is needed to install plugin to be able to use it.
+In the IntelliJ IDEA to be able to see Lombok generated code, you should enable the annotation preprocessor. [See documentation here.](https://www.jetbrains.com/help/idea/2016.1/configuring-annotation-processing.html) (Settings->Build->Compiler->Annotation Processors: Enable annotation preprocessing)
+
 ## Building and running the micro-service
 
 You can start a microservice as a standalone application:
@@ -49,6 +53,8 @@ $ java -jar build/libs/microservice-template-X.Y.Z-SNAPSHOT.war
 ```
 
 The WAR file produced by Gradle can also be deployed in the embedded Jetty container started by an instance of [ProActive Server](https://github.com/ow2-proactive/scheduling).
+
+Sometimes the gradle processes are not killing properly when you stop the running application. If you receive the message "the port is already in use" on starting microservice, then kill all suspending gradle processes for previous task. You can do it manually or use in IntelliJ IDEA Gradle killer plugin.
 
 ## Example
 The template is organized with a complete RESTful example. The example follows MVC packaging structure and covered by tests.
