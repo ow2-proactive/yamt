@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Rule one",
+    "nodes": [
+      {
+        "alienId": "f500be5d-8a09-4855-8e5c-4bd6aea859de"
+      }
+    ],
+    "selectList": "select attributes(cpu), avg(memory)",
+    "searchCondition": "having avg(cpu) < 100 and avg(memory) < 100",
+    "kpis": [
+      "cpu","memory"
+    ],
+    "period": 1,
+    "windowTimeMin": 5,
+    "notifications": [
+      "LOG"
+    ]
+  }
+]

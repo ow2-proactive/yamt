@@ -50,7 +50,7 @@ public class UserRest {
 
     //-------------------Create a User--------------------------------------------------------
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     public ResponseEntity<User> createUser(@RequestBody User user) {
         logger.debug("Creating User " + user.getName());
         return userService.findByName(user.getName()).map(userFound -> new ResponseEntity<>(userFound, HttpStatus.CONFLICT))

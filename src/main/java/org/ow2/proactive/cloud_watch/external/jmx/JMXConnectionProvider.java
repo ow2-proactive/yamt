@@ -3,7 +3,6 @@ package org.ow2.proactive.cloud_watch.external.jmx;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import javax.management.remote.JMXConnector;
@@ -13,7 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@Profile("prod")
+//@Profile("prod")
 @Component
 public class JMXConnectionProvider {
 
@@ -51,7 +50,7 @@ public class JMXConnectionProvider {
 	/**
 	 * Initialize the JMX environment to be used.
 	 * 
-	 * @param login
+	 * @param username
 	 *            login to get connected to the RM.
 	 * @param password
 	 *            password to get connected to the RM.

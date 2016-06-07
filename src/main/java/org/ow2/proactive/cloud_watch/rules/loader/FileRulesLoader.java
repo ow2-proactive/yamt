@@ -4,6 +4,8 @@ package org.ow2.proactive.cloud_watch.rules.loader;
 //import com.aol.micro.server.rest.jackson.JacksonUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jersey.repackaged.com.google.common.collect.Sets;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -22,6 +24,7 @@ import java.util.Set;
 @Component
 public class FileRulesLoader implements RulesLoader {
 
+	private final Logger logger = LogManager.getRootLogger();
 	private final String rulesFilePath;
 	private final JSONParser parser;
 
@@ -53,6 +56,7 @@ public class FileRulesLoader implements RulesLoader {
 			throw new RuntimeException("Error while loading the rules", e);
 		}
 
+		logger.info("All rules have been loaded successfully ");
 		return rules;
 	}
 

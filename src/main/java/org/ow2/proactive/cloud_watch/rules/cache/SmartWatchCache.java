@@ -51,6 +51,7 @@ public class SmartWatchCache {
 	}
 
 	public void init() {
+		rulesLoader.load();
 //		refreshRules();
 	}
 

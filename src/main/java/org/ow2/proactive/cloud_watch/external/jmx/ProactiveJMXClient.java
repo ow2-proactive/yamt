@@ -1,11 +1,11 @@
 package org.ow2.proactive.cloud_watch.external.jmx;
 
 //import jersey.repackaged.com.google.common.collect.Maps;
+
 import lombok.extern.log4j.Log4j;
 import org.ow2.proactive.cloud_watch.external.ProactiveClient;
 import org.ow2.proactive.cloud_watch.model.NodeInformation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import javax.management.*;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @Log4j
 @Component
-@Profile("prod")
+//@Profile("prod")
 public class ProactiveJMXClient implements ProactiveClient {
 
 	private static final String MBEAN_NAME_PREFIX = "ProActiveResourceManager:name=IaasMonitoring-";
