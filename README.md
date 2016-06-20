@@ -71,6 +71,22 @@ To access Swagger API:
 
 ## DB configuration
 
+#### Dependencies 
+Add next dependencies to **build.gradle** file
+```
+compile 'org.springframework.boot:spring-boot-starter-data-jpa:1.3.3.RELEASE'
+providedRuntime 'org.hsqldb:hsqldb:2.3.3'
+```
+
+In the **src/main/resources/application.properties** add configurations specific to your project: 
+```
+logging.level.org.hibernate.SQL=off
+# Hibernate ddl auto (create, create-drop, update)
+spring.jpa.hibernate.ddl-auto=update
+# Show or not log for each sql query
+spring.jpa.show-sql=false
+```
+#### Configuration class 
 For using DB configuration include next class to your project.
 Of course change 'microservice-template' name to proper one.
 
