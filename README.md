@@ -8,11 +8,11 @@ The purpose of the microservice template is to have common template for new micr
 ## Build Badges
 
 To insert a build-badge like this one:
-[![Build Status](http://jenkins.activeeon.com/job/scheduling/badge/icon)](http://jenkins.activeeon.com/job/scheduling/)
+[![Build Status](http://jenkins.activeeon.com/buildStatus/icon?job=scheduling)](http://jenkins.activeeon.com/job/scheduling/)
 
 We need to use the following code after creating the associated job on Jenkins:
 ```
-[![Build Status](http://jenkins.activeeon.com/job/<insert microservice job name>/badge/icon)](http://jenkins.activeeon.com/job/<insert microservice job name>/)
+[![Build Status](http://jenkins.activeeon.com/buildStatus/icon?job=<insert microservice job name>)](http://jenkins.activeeon.com/job/<insert microservice job name>/)
 ```
 
 Same goes for the coveralls-badge:
