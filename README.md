@@ -29,7 +29,7 @@ The following modifications are needed before starting to work on the micro-serv
 * In the main/java modify the **package name** to your need.
 These changes will impact at the springBoot section in build.gradle file. By default the Application.java from this package will start on bootRun.
 
-## Prepare your IDE 
+## Prepare your IDE
 In the project is used Lombok library. It is needed to install plugin to be able to use it.
 In the IntelliJ IDEA to be able to see Lombok generated code, you should enable the annotation preprocessor. [See documentation here.](https://www.jetbrains.com/help/idea/2016.1/configuring-annotation-processing.html) (Settings->Build->Compiler->Annotation Processors: Enable annotation preprocessing)
 
@@ -71,14 +71,14 @@ To access Swagger API:
 
 ## DB configuration
 
-#### Dependencies 
+#### Dependencies
 Add next dependencies to **build.gradle** file
 ```
 compile 'org.springframework.boot:spring-boot-starter-data-jpa:1.3.3.RELEASE'
 providedRuntime 'org.hsqldb:hsqldb:2.3.3'
 ```
 
-In the **src/main/resources/application.properties** add configurations specific to your project: 
+In the **src/main/resources/application.properties** add configurations specific to your project:
 ```
 logging.level.org.hibernate.SQL=off
 # Hibernate ddl auto (create, create-drop, update)
@@ -86,7 +86,7 @@ spring.jpa.hibernate.ddl-auto=update
 # Show or not log for each sql query
 spring.jpa.show-sql=false
 ```
-#### Configuration class 
+#### Configuration class
 For using DB configuration include next class to your project.
 Of course change 'microservice-template' name to proper one.
 

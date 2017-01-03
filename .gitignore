@@ -4,7 +4,7 @@ src/generated
 *.iml
 .idea
 .gradle
-
+gradle/ext/
 
 
 # Created by https://www.gitignore.io/api/intellij,eclipse,emacs,vim,gradle,sonar,java
