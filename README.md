@@ -22,9 +22,9 @@ Same goes for the coveralls-badge:
 
 ## Specific modifications
 The following modifications are needed before starting to work on the micro-service:
-* In the **build.gradle** file update the dependencies versions
-* In the **src/main/resources/log4j2.xml** change the log file name from 'micro-service.log'
 * In the **gradle.properties** modify the version, projectName, packageLastPartName (the last part in package name)
+    The version should correspond to current release snaphot. This version will be used for downloading the specific version of libraries for dependency management.
+* In the **src/main/resources/log4j2.xml** change the log file name from 'micro-service.log'
 * In the **src/main/webapp/WEB-INF/applicationContext.xml** specify the correct package name in base-package (change the microservice_template name to the packageLastPartName already specified in properties)
 * In the main/java modify the **package name** to your need.
 These changes will impact at the springBoot section in build.gradle file. By default the Application.java from this package will start on bootRun.
