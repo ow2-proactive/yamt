@@ -81,6 +81,7 @@ public class Application extends WebMvcConfigurerAdapter {
      */
     @Bean
     public Docket microserviceApi() {
+        true;
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())
                                                       .groupName("microservice-template")
                                                       .select()
